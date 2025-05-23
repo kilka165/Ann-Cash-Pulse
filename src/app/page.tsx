@@ -9,14 +9,13 @@ import CoinPreviewCard from '@/components/shared/CoinPreviewCard';
 export default async function HomePage() {
   const [globalStats, topCoinsData] = await Promise.all([
     fetchGlobalStats(),
-    fetchTopTickers(5) // Загружаем топ-5 монет
+    fetchTopTickers(5)
   ]);
 
-  const topCoins = topCoinsData || []; // Гарантируем, что topCoins это массив, даже если API вернул null
+  const topCoins = topCoinsData || [];
 
   return (
     <div className="flex flex-col items-center text-center px-4 py-12 sm:py-16">
-      {/* Hero Section */}
       <section className="w-full max-w-4xl mb-16 sm:mb-24">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl  mb-6 leading-tight">
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-300">
@@ -45,10 +44,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Market Overview Section */}
       {globalStats ? (
         <section className="w-full max-w-5xl mb-16 sm:mb-24">
-          <h2 className="text-2xl sm:text-3xl font-[var(--font-manrope)] font-bold text-slate-100 mb-8 text-left sm:text-center">Обзор Рынка</h2>
+          <h2 className="text-2xl sm:text-3xl text-slate-100 mb-8 text-left sm:text-center">Обзор Рынка</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             <StatCard title="Капитализация" value={`$${formatCompactNumber(globalStats.market_cap_usd)}`} icon={<FiGlobe size={20} />} />
             <StatCard title="Объем (24ч)" value={`$${formatCompactNumber(globalStats.volume_24h_usd)}`} icon={<FiActivity size={20} />} />
@@ -62,11 +60,10 @@ export default async function HomePage() {
          </div>
       )}
 
-      {/* Top Cryptocurrencies Section */}
       {topCoins.length > 0 ? (
         <section className="w-full max-w-6xl mb-16 sm:mb-24">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-8 px-2 sm:px-0">
-            <h2 className="text-2xl sm:text-3xl font-[var(--font-manrope)] font-bold text-slate-100 text-left mb-4 sm:mb-0">Топ Монет по Капитализации</h2>
+            <h2 className="text-2xl sm:text-3xl  text-slate-100 text-left mb-4 sm:mb-0">Топ Монет по Капитализации</h2>
             <Link href="/coins" className="text-sky-400 hover:text-sky-300 transition-colors font-medium inline-flex items-center self-start sm:self-center">
               Все монеты <FiArrowRight className="ml-1 h-4 w-4" />
             </Link>
@@ -77,15 +74,14 @@ export default async function HomePage() {
             ))}
           </div>
         </section>
-      ) : globalStats /* Только если глобальные данные тоже не загрузились, не показываем отдельную ошибку для монет */ ? null : (
+      ) : globalStats? null : (
          <div className="w-full max-w-5xl mb-16 sm:mb-24 p-6 bg-slate-800 rounded-lg border border-slate-700">
             <p className="text-slate-400 text-center">Не удалось загрузить список топ монет. Пожалуйста, попробуйте обновить страницу позже.</p>
          </div>
       )}
 
-      {/* Key Features Section */}
       <section className="w-full max-w-5xl">
-        <h2 className="text-2xl sm:text-3xl font-[var(--font-manrope)] font-bold text-slate-100 mb-8 text-left sm:text-center">Ключевые Возможности</h2>
+        <h2 className="text-2xl sm:text-3xl text-slate-100 mb-8 text-left sm:text-center">Ключевые Возможности</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {[
             { title: "Актуальные Данные", icon: <FiBarChart2 size={24} />, text: "Получайте информацию о курсах и рыночной капитализации в реальном времени." },
@@ -96,7 +92,7 @@ export default async function HomePage() {
               <div className="flex items-center justify-center mb-4 w-12 h-12 bg-sky-500/20 text-sky-400 rounded-full mx-auto md:mx-0">
                 {feature.icon}
               </div>
-              <h3 className="text-lg sm:text-xl font-[var(--font-manrope)] font-semibold text-slate-100 mb-2 text-center md:text-left">{feature.title}</h3>
+              <h3 className="text-lg sm:text-xl  text-slate-100 mb-2 text-center md:text-left">{feature.title}</h3>
               <p className="text-slate-400 text-sm text-center md:text-left">
                 {feature.text}
               </p>
