@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AnnCashPulse  Crypto Tracker
 
-## Getting Started
+**AnnCashPulse** — это веб-приложение для отслеживания актуальной информации о криптовалютах, их курсах, рыночной капитализации и данных о криптовалютных биржах. Проект создан с использованием современных веб-технологий и предоставляет удобный интерфейс для анализа крипторынка.
 
-First, run the development server:
+## 🚀 Основные возможности
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+*   **Обзор рынка:** Отображение общей рыночной капитализации, объема торгов и доминации Bitcoin.
+*   **Список криптовалют:** Просмотр списка всех доступных криптовалют с их текущими ценами, рангом и изменениями за 24 часа. Пагинация для удобного просмотра.
+*   **Детальная информация о монете:** Подробная страница для каждой криптовалюты с графиком цены, описанием, ссылками и рыночной статистикой.
+*   **Список бирж:** Обзор криптовалютных бирж с информацией об их объемах торгов, количестве поддерживаемых рынков и валют.
+*   **Детальная информация о бирже:**Страница с подробной информацией о выбранной бирже, включая список ее торговых пар.
+*   **Адаптивный дизайн:** Сайт корректно отображается на различных устройствах.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Технологический стек
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*   **Frontend:**
+    *   [Next.js](https://nextjs.org/) (React Framework)
+    *   [React](https://reactjs.org/)
+    *   [TypeScript](https://www.typescriptlang.org/)
+    *   [Tailwind CSS](https://tailwindcss.com/) (для стилизации)
+    *   [Zustand](https://zustand-demo.pmnd.rs/) (для управления состоянием)
+    *   [React Icons](https://react-icons.github.io/react-icons/) (для иконок)
+*   **API:**
+    *   [CoinPaprika API](https://api.coinpaprika.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Установка и запуск
 
-## Learn More
+Для запуска проекта локально выполните следующие шаги:
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Клонируйте репозиторий:**
+    ```bash
+    git clone <URL_ВАШЕГО_РЕПОЗИТОРИЯ>
+    cd anncashpulse 
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Установите зависимости:**
+    Убедитесь, что у вас установлен Node.js (рекомендуется LTS версия) и npm/yarn.
+    ```bash
+    npm install
+    # или
+    yarn install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Запустите сервер для разработки:**
+    ```bash
+    npm run dev
+    # или
+    yarn dev
+    ```
 
-## Deploy on Vercel
+4.  **Откройте приложение в браузере:**
+    Перейдите по адресу [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤖 Использование инструментов Искусственного Интеллекта (ИИ)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+В процессе разработки данного проекта использовались следующие инструменты ИИ:
+
+*   **Инструмент ИИ:** [ChatGPT](https://chat.openai.com/) и [GitHub Copilot](https://github.com/features/copilot)
+*   **Задачи, для которых применялся ИИ:**
+    *   Помощь в написании и отладке функций для взаимодействия с API.
+    *   Предложения по структуре проекта и компонентов.
+    *   Помощь в стилизации с использованием Tailwind CSS.
+    *   Объяснение концепций и решение проблем, возникающих в ходе разработки.
+
+
+Автор: [Кулаков Кирилл](https://github.com/kilka165)
