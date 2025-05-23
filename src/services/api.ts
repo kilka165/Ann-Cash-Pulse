@@ -49,7 +49,8 @@ export async function fetchTickerForCoin(coinId: string): Promise<Ticker | null>
 
 export async function fetchHistoricalOHLCV(coinId: string, startDate?: string): Promise<HistoricalOHLCV[] | null> {
   const start = startDate || new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-  return fetchData<HistoricalOHLCV[]>(`/coins/${coinId}/ohlcv/historical?start=${start}"es=USD`, `Failed to fetch historical data for ${coinId}`);
+  const endpoint = `/coins/${coinId}/ohlcv/historical?start=${start}"es=USD`;
+  return fetchData<HistoricalOHLCV[]>(endpoint, `Failed to fetch historical data for ${coinId}`);
 }
 
 export async function fetchExchanges(): Promise<Exchange[] | null> {
