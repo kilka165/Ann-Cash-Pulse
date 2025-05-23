@@ -1,4 +1,5 @@
-import { GlobalStats, Ticker, CoinDetail, Exchange, HistoricalOHLCV } from '@/@types/coinpaprika';
+import { GlobalStats, Ticker, CoinDetail, Exchange, HistoricalOHLCV, ExchangeDetail, Market } from '@/@types/coinpaprika';
+
 
 const API_BASE_URL = 'https://api.coinpaprika.com/v1';
 
@@ -55,4 +56,12 @@ export async function fetchHistoricalOHLCV(coinId: string, startDate?: string): 
 
 export async function fetchExchanges(): Promise<Exchange[] | null> {
   return fetchData<Exchange[]>('/exchanges?quotes=USD', 'Failed to fetch exchanges');
+}
+
+export async function fetchExchangeById(exchangeId: string): Promise<ExchangeDetail | null> {
+  return fetchData<ExchangeDetail>(`/exchanges/${exchangeId}?quotes=USD`, `Failed to fetch exchange ${exchangeId}`);
+}
+
+export async function fetchMarketsByExchangeId(exchangeId: string): Promise<Market[] | null> {
+  return fetchData<Market[]>(`/exchanges/${exchangeId}/markets?quotes=USD`, `Failed to fetch markets for exchange ${exchangeId}`);
 }

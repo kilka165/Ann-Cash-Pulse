@@ -137,3 +137,32 @@ export interface HistoricalOHLCV {
   volume: number;
   market_cap: number;
 }
+
+export interface Market {
+  pair: string;
+  base_currency_id: string;
+  base_currency_name: string;
+  quote_currency_id: string;
+  quote_currency_name: string;
+  market_url?: string;
+  category: string;
+  fee_type: string;
+  outlier: boolean;
+  adjusted_volume_24h_share: number | null;
+  quotes: {
+    USD: MarketQuote;
+  };
+  last_updated: string;
+  market_cap_usd?: number;
+  price_ath_usd?: number;
+  volume_24h_usd_ath?: number;
+}
+
+export interface MarketQuote {
+  price: number;
+  volume_24h: number;
+}
+
+export interface ExchangeDetail extends Exchange {
+    description?: string | null;
+}
